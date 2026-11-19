@@ -14,9 +14,9 @@
   --bg:#f3f5f6; --surface:#ffffff; --ink:#15212b; --muted:#56646f; --line:#d5dce1;
   --accent:#1d5fa8; --accent-ink:#ffffff; --before:#a3412b; --before-bg:#fbefec; --after:#1f7a52; --after-bg:#eaf5ef;
   --band:#1a2833; --band-ink:#e8eef2; --band-muted:#9fb0bd;
-  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --display:"Archivo","Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,"PingFang SC","Microsoft YaHei",monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#10171d; --surface:#17212a; --ink:#e6ecf0; --muted:#9aa9b5; --line:#2a3843;
@@ -52,7 +52,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .plate{border:1px solid #3a4b58;border-radius:6px;padding:20px 22px;font-family:var(--mono);font-size:.86rem;background:rgba(255,255,255,.03)}
 .plate .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed #3a4b58}
 .plate .row:last-child{border-bottom:0}
-.plate .k{color:var(--band-muted)}
+.plate .k{color:var(--band-muted);white-space:nowrap}
 .plate .v{text-align:right}
 
 section{padding-block:72px}
@@ -128,6 +128,15 @@ footer{padding-block:28px;font-size:.85rem;color:var(--muted);border-top:1px sol
 }
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 html{scroll-behavior:smooth}
+html[data-lang="zh"] .l-en{display:none}
+html:not([data-lang="zh"]) .l-zh{display:none}
+html[data-lang="zh"] .label,html[data-lang="zh"] .tag{letter-spacing:.04em}
+.navr{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.langbtn{font:600 .9rem/1 var(--body);color:var(--band-ink);background:transparent;border:1.5px solid var(--band-muted);border-radius:999px;padding:8px 14px;cursor:pointer}
+.langbtn:hover{border-color:var(--band-ink)}
+.langbig{display:inline-flex;align-items:center;gap:10px;margin-top:28px;margin-left:12px;font:600 1rem/1 var(--body);color:var(--band-ink);background:rgba(255,255,255,.06);border:1.5px solid var(--band-muted);border-radius:4px;padding:12px 20px;cursor:pointer}
+.langbig:hover{border-color:var(--band-ink)}
+@media (max-width:620px){.langbig{margin-left:0}}
 </style>
 <style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
 </head>
@@ -138,25 +147,29 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <nav class="nav" aria-label="Main">
       <span class="brand">EXPORTER ENGLISH</span>
+      <div class="navr">
       <ul>
-        <li><a href="#samples">Samples</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#packages">Packages</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#samples"><span class="l-en">Samples</span><span class="l-zh">样稿</span></a></li>
+        <li><a href="#video"><span class="l-en">Video</span><span class="l-zh">视频</span></a></li>
+        <li><a href="#packages"><span class="l-en">Packages</span><span class="l-zh">套餐</span></a></li>
+        <li><a href="#contact"><span class="l-en">Contact</span><span class="l-zh">联系</span></a></li>
       </ul>
+      <button type="button" class="langbtn" id="langbtn" data-set-lang="toggle" aria-label="切换语言 / Switch language"><span class="l-en">中文</span><span class="l-zh">English</span></button>
+      </div>
     </nav>
     <div class="hero">
       <div>
-        <h1>English that sells your machines to Western buyers.</h1>
-        <p class="lead">Listings, product videos and a native English host for Chinese food processing and packaging machine factories. You film the machine. I make it read and sound like it was made for the buyer.</p>
-        <a class="cta" href="#contact">Get a free listing rewrite</a>
+        <h1><span class="l-en">English that sells your machines to Western buyers.</span><span class="l-zh">用地道英文，把您的机器卖给欧美买家。</span></h1>
+        <p class="lead"><span class="l-en">Listings, product videos and a native English host for Chinese food processing and packaging machine factories. You film the machine. I make it read and sound like it was made for the buyer.</span><span class="l-zh">专为中国食品加工和包装机械企业提供英文产品页面、产品视频和英语母语主持。您负责拍摄机器，我负责让它在欧美买家眼里看起来、听起来都专业可信。</span></p>
+        <a class="cta" href="#contact"><span class="l-en">Get a free listing rewrite</span><span class="l-zh">免费改写一个产品页面</span></a>
+        <button type="button" class="langbig" data-set-lang="toggle"><span class="l-en">查看中文版 →</span><span class="l-zh">View in English →</span></button>
       </div>
       <div class="plate" aria-label="Service summary">
-        <div class="row"><span class="k">Specialty</span><span class="v">Food processing &amp; packaging machinery</span></div>
-        <div class="row"><span class="k">Platforms</span><span class="v">Alibaba · Made-in-China · Global Sources</span></div>
-        <div class="row"><span class="k">Language</span><span class="v">Native Canadian English</span></div>
-        <div class="row"><span class="k">On camera</span><span class="v">Product videos · factory tours · live streams</span></div>
-        <div class="row"><span class="k">Billing</span><span class="v">USD · Wise or PayPal</span></div>
+        <div class="row"><span class="k"><span class="l-en">Specialty</span><span class="l-zh">专注领域</span></span><span class="v"><span class="l-en">Food processing &amp; packaging machinery</span><span class="l-zh">食品加工与包装机械</span></span></div>
+        <div class="row"><span class="k"><span class="l-en">Platforms</span><span class="l-zh">平台</span></span><span class="v">Alibaba · Made-in-China · Global Sources</span></div>
+        <div class="row"><span class="k"><span class="l-en">Language</span><span class="l-zh">语言</span></span><span class="v"><span class="l-en">Native Canadian English</span><span class="l-zh">加拿大英语母语</span></span></div>
+        <div class="row"><span class="k"><span class="l-en">On camera</span><span class="l-zh">出镜</span></span><span class="v"><span class="l-en">Product videos · factory tours · live streams</span><span class="l-zh">产品视频 · 工厂参观 · 直播</span></span></div>
+        <div class="row"><span class="k"><span class="l-en">Billing</span><span class="l-zh">付款</span></span><span class="v"><span class="l-en">USD · Wise or PayPal</span><span class="l-zh">美元 · Wise 或 PayPal</span></span></div>
       </div>
     </div>
   </div>
@@ -166,82 +179,82 @@ html{scroll-behavior:smooth}
 <section id="samples">
   <div class="wrap">
     <div class="sec-head">
-      <span class="label">Listing rewrites</span>
-      <h2>Three real listings, before and after</h2>
-      <p>Each "before" is copied from a live Made-in-China.com listing. Supplier names are withheld. Facts the original didn't give are left for the factory to confirm, never invented.</p>
+      <span class="label"><span class="l-en">Listing rewrites</span><span class="l-zh">产品页面改写</span></span>
+      <h2><span class="l-en">Three real listings, before and after</span><span class="l-zh">三个真实产品页面：改写前后对比</span></h2>
+      <p><span class="l-en">Each "before" is copied from a live Made-in-China.com listing. Supplier names are withheld. Facts the original didn't give are left for the factory to confirm, never invented.</span><span class="l-zh">每个"改写前"都摘自中国制造网上的真实页面，已隐去供应商名称。原页面没有提供的数据，留给工厂确认，绝不编造。</span></p>
     </div>
 
     <article class="sample">
-      <div class="sample-top"><h3>Pillow packing machine (flow wrapper)</h3><span class="meta">Packaging · Liaoning · US$9k–25k</span></div>
+      <div class="sample-top"><h3><span class="l-en">Pillow packing machine (flow wrapper)</span><span class="l-zh">枕式包装机</span></h3><span class="meta"><span class="l-en">Packaging · Liaoning · US$9k–25k</span><span class="l-zh">包装机械 · 辽宁 · 9千–2.5万美元</span></span></div>
       <div class="ba">
         <div class="before">
-          <span class="tag">Before</span>
+          <span class="tag"><span class="l-en">Before</span><span class="l-zh">改写前</span></span>
           <p class="ttl">Biscuits / Cakes / Medicine / Daily Necessities / Industrial Parts / Cartons / Chocolate / Bread / <mark>Noddle</mark> Pillow Packing Machine</p>
           <p class="q">"This machine is used for packing the product that are not suitable the brush to feed, like chocolate, waffle, puffing, nougat etc."</p>
         </div>
         <div class="after">
-          <span class="tag">After</span>
+          <span class="tag"><span class="l-en">After</span><span class="l-zh">改写后</span></span>
           <p class="ttl">Horizontal Flow Wrapper GS-350 | Servo Pillow Pack Machine for Chocolate, Wafers &amp; Snack Bars | 40–220 Packs/Min</p>
           <p class="q">Wrap chocolate, wafers, nougat and snack bars at up to 220 packs per minute. The GS-350 is a servo-driven flow wrapper for products that can't go through a brush feeder, and it links straight to your line.</p>
         </div>
       </div>
       <div class="fixes">
-        <span class="label">What changed</span>
+        <span class="label"><span class="l-en">What changed</span><span class="l-zh">改了什么</span></span>
         <ul>
-          <li>The title had nine unrelated products. Now it leads with the terms buyers search ("flow wrapper"), plus the model number and speed.</li>
-          <li>The listing gave two different speeds (60–220 and 40–220). That's flagged for the factory to confirm.</li>
-          <li>Features rewritten as buyer gains: no empty bags, size changes on the touchscreen, no stops for film changes.</li>
-          <li>Added a buyer FAQ that answers product size, film types and line connection before anyone has to message.</li>
+          <li><span class="l-en">The title had nine unrelated products. Now it leads with the terms buyers search ("flow wrapper"), plus the model number and speed.</span><span class="l-zh">原标题罗列了多种产品，买家不容易搜到。新标题以买家常搜的"flow wrapper"开头，并加上型号和速度。</span></li>
+          <li><span class="l-en">The listing gave two different speeds (60–220 and 40–220). That's flagged for the factory to confirm.</span><span class="l-zh">页面上有两个不同的速度（60–220和40–220），已标注请工厂确认。</span></li>
+          <li><span class="l-en">Features rewritten as buyer gains: no empty bags, size changes on the touchscreen, no stops for film changes.</span><span class="l-zh">卖点改写成对买家的好处：无料不制袋、触摸屏直接换规格、换膜不停机。</span></li>
+          <li><span class="l-en">Added a buyer FAQ that answers product size, film types and line connection before anyone has to message.</span><span class="l-zh">新增买家常见问题，提前回答产品尺寸、包装膜类型和产线对接等问题。</span></li>
         </ul>
       </div>
     </article>
 
     <article class="sample">
-      <div class="sample-top"><h3>Industrial meat and vegetable dicer</h3><span class="meta">Food processing · Shandong · US$3k–5k</span></div>
+      <div class="sample-top"><h3><span class="l-en">Industrial meat and vegetable dicer</span><span class="l-zh">工业肉类蔬菜切丁机</span></h3><span class="meta"><span class="l-en">Food processing · Shandong · US$3k–5k</span><span class="l-zh">食品加工 · 山东 · 3千–5千美元</span></span></div>
       <div class="ba">
         <div class="before">
-          <span class="tag">Before</span>
+          <span class="tag"><span class="l-en">Before</span><span class="l-zh">改写前</span></span>
           <p class="ttl">Vegetable Frozen Industrial Automatic Pork Meat Cube Cutting Chopping Processing Dicer Machine</p>
           <p class="q">"…we focus on the R&amp;D, design, production and sales of <mark>enema production lines</mark>, vacuum packaging machines…"</p>
         </div>
         <div class="after">
-          <span class="tag">After</span>
+          <span class="tag"><span class="l-en">After</span><span class="l-zh">改写后</span></span>
           <p class="ttl">QDJ-350 Industrial Meat Dicer | Cubes Fresh &amp; Frozen Meat, Vegetables and Fruit | SUS304, Hydraulic or CNC</p>
           <p class="q">"…we've shipped sausage production lines, dicers, tumblers, vegetable washers and fryers to buyers in North America, Southeast Asia and the Middle East."</p>
         </div>
       </div>
       <div class="fixes">
-        <span class="label">What changed</span>
+        <span class="label"><span class="l-en">What changed</span><span class="l-zh">改了什么</span></span>
         <ul>
-          <li>"Enema" was a literal translation of 灌肠 (sausage stuffing). To a Western buyer it means a medical device, so it's now "sausage production lines".</li>
-          <li>The page named two different companies. Now it uses one name throughout.</li>
-          <li>Fixed a spec typo (a 190 mm machine length that should be 1940 mm) plus "Forover" and "Datails".</li>
-          <li>Flagged the facts buyers need that were missing: output in kg/h, cube size range, and Hydraulic vs CNC.</li>
+          <li><span class="l-en">"Enema" was a literal translation of 灌肠 (sausage stuffing). To a Western buyer it means a medical device, so it's now "sausage production lines".</span><span class="l-zh">"Enema"是"灌肠（香肠）"的直译，欧美买家会理解成医疗用品，已改为"sausage production lines"（香肠生产线）。</span></li>
+          <li><span class="l-en">The page named two different companies. Now it uses one name throughout.</span><span class="l-zh">页面上出现了两个公司名称，现在全文统一为一个。</span></li>
+          <li><span class="l-en">Fixed a spec typo (a 190 mm machine length that should be 1940 mm) plus "Forover" and "Datails".</span><span class="l-zh">修正了参数笔误（机器长度190毫米应为1940毫米）以及"Forover"、"Datails"等拼写错误。</span></li>
+          <li><span class="l-en">Flagged the facts buyers need that were missing: output in kg/h, cube size range, and Hydraulic vs CNC.</span><span class="l-zh">标注了买家需要但页面缺少的数据：每小时产量、丁块尺寸范围、液压版与数控版的区别。</span></li>
         </ul>
       </div>
     </article>
 
     <article class="sample">
-      <div class="sample-top"><h3>Multihead weigher vertical packing machine</h3><span class="meta">Packaging · Jiangxi · US$10k–15k</span></div>
+      <div class="sample-top"><h3><span class="l-en">Multihead weigher vertical packing machine</span><span class="l-zh">组合秤立式包装机</span></h3><span class="meta"><span class="l-en">Packaging · Jiangxi · US$10k–15k</span><span class="l-zh">包装机械 · 江西 · 1万–1.5万美元</span></span></div>
       <div class="ba">
         <div class="before">
-          <span class="tag">Before</span>
+          <span class="tag"><span class="l-en">Before</span><span class="l-zh">改写前</span></span>
           <p class="ttl">Banana Chips/ Shrimpchips/Nut Automatic Solid Snack Vertical Packing Machine</p>
           <p class="q">"It can automatically complete bag making, measuring, <mark>blanking</mark>, sealing… and can be equipped with <mark>cursor</mark>, coding, inflation…"</p>
         </div>
         <div class="after">
-          <span class="tag">After</span>
+          <span class="tag"><span class="l-en">After</span><span class="l-zh">改写后</span></span>
           <p class="ttl">Multihead Weigher VFFS Packing Machine SD-S420 | Snack, Chips &amp; Nut Bagging | 0.5–1 kg Bags, Mitsubishi PLC</p>
           <p class="q">Forms the bag, weighs, fills, seals, cuts and counts in one cycle. Options include date coding, nitrogen flushing and a registration-mark photo-eye for printed film.</p>
         </div>
       </div>
       <div class="fixes">
-        <span class="label">What changed</span>
+        <span class="label"><span class="l-en">What changed</span><span class="l-zh">改了什么</span></span>
         <ul>
-          <li>Translated the machine-manual terms into what buyers say: "combination scale" became multihead weigher, "cursor" became registration mark, "blanking" became product discharge.</li>
-          <li>Added "multihead weigher" and "VFFS" to the title. Those are the two phrases buyers type into search.</li>
-          <li>Kept the strongest part, the name-brand parts list and priced spares, and moved it up where buyers will see it.</li>
-          <li>Flagged a founding date that conflicted (2012 vs 2017) before a buyer notices it.</li>
+          <li><span class="l-en">Translated the machine-manual terms into what buyers say: "combination scale" became multihead weigher, "cursor" became registration mark, "blanking" became product discharge.</span><span class="l-zh">把说明书式的直译换成买家常用的术语："combination scale"改为 multihead weigher，"cursor"改为 registration mark，"blanking"改为 product discharge。</span></li>
+          <li><span class="l-en">Added "multihead weigher" and "VFFS" to the title. Those are the two phrases buyers type into search.</span><span class="l-zh">标题加入"multihead weigher"和"VFFS"，这是买家最常搜的两个词。</span></li>
+          <li><span class="l-en">Kept the strongest part, the name-brand parts list and priced spares, and moved it up where buyers will see it.</span><span class="l-zh">保留页面最好的部分：品牌配件清单和易损件价格表，并放到更显眼的位置。</span></li>
+          <li><span class="l-en">Flagged a founding date that conflicted (2012 vs 2017) before a buyer notices it.</span><span class="l-zh">标注了前后不一致的成立年份（2012年和2017年），避免买家起疑。</span></li>
         </ul>
       </div>
     </article>
@@ -251,26 +264,26 @@ html{scroll-behavior:smooth}
 <section id="video">
   <div class="wrap">
     <div class="sec-head">
-      <span class="label">Sample product video · 25 seconds · 9:16 and 16:9</span>
-      <h2>Flow wrapper video script</h2>
-      <p>Your team films the machine from a simple shot list. I record the opener and voiceover, then edit with captions for Alibaba, TikTok, YouTube Shorts and LinkedIn.</p>
+      <span class="label"><span class="l-en">Sample product video · 25 seconds · 9:16 and 16:9</span><span class="l-zh">产品视频样例 · 25秒 · 竖屏和横屏</span></span>
+      <h2><span class="l-en">Flow wrapper video script</span><span class="l-zh">枕式包装机视频脚本</span></h2>
+      <p><span class="l-en">Your team films the machine from a simple shot list. I record the opener and voiceover, then edit with captions for Alibaba, TikTok, YouTube Shorts and LinkedIn.</span><span class="l-zh">贵公司按简单的拍摄清单拍摄机器，我录制英文开场和配音，再剪辑并加上字幕，适用于阿里巴巴、TikTok、YouTube Shorts 和 LinkedIn。</span></p>
     </div>
     <div class="board">
       <table>
-        <thead><tr><th>Time</th><th>Picture</th><th>Voice</th><th>On-screen text</th></tr></thead>
+        <thead><tr><th><span class="l-en">Time</span><span class="l-zh">时间</span></th><th><span class="l-en">Picture</span><span class="l-zh">画面</span></th><th><span class="l-en">Voice</span><span class="l-zh">英文配音</span></th><th><span class="l-en">On-screen text</span><span class="l-zh">屏幕字幕</span></th></tr></thead>
         <tbody>
-          <tr><td class="t">0–4 s</td><td>Host on camera, chest-up</td><td class="vo">"This machine wraps up to 220 chocolate bars a minute. Watch."</td><td>220 packs / min</td></tr>
-          <tr><td class="t">4–9 s</td><td>Factory: wide shot, bars on the infeed conveyor</td><td class="vo">"Bars come straight off your line onto a custom infeed, with no hand feeding."</td><td>Links to your line</td></tr>
-          <tr><td class="t">9–15 s</td><td>Close-up: film forming, seal jaw closing</td><td class="vo">"Nine servo motors keep every wrap tight and centered, and multi-zone heat gives a clean, strong seal."</td><td>9 servo motors</td></tr>
-          <tr><td class="t">15–20 s</td><td>Close-up: hand changes bag length on the touchscreen</td><td class="vo">"Change bag size right on the touchscreen, in English. No tools."</td><td>Size change in seconds</td></tr>
-          <tr><td class="t">20–25 s</td><td>Finished packs on the outfeed, push-in on the badge</td><td class="vo">"The GS-350 flow wrapper. Message us and we'll show it running live on a video call."</td><td>Message us for a live demo</td></tr>
+          <tr><td class="t">0–4 s</td><td><span class="l-en">Host on camera, chest-up</span><span class="l-zh">主持人出镜，半身</span></td><td class="vo">"This machine wraps up to 220 chocolate bars a minute. Watch."</td><td>220 packs / min</td></tr>
+          <tr><td class="t">4–9 s</td><td><span class="l-en">Factory: wide shot, bars on the infeed conveyor</span><span class="l-zh">工厂全景，产品在进料输送带上</span></td><td class="vo">"Bars come straight off your line onto a custom infeed, with no hand feeding."</td><td>Links to your line</td></tr>
+          <tr><td class="t">9–15 s</td><td><span class="l-en">Close-up: film forming, seal jaw closing</span><span class="l-zh">特写：包膜成型、封切刀闭合</span></td><td class="vo">"Nine servo motors keep every wrap tight and centered, and multi-zone heat gives a clean, strong seal."</td><td>9 servo motors</td></tr>
+          <tr><td class="t">15–20 s</td><td><span class="l-en">Close-up: hand changes bag length on the touchscreen</span><span class="l-zh">特写：在触摸屏上调整袋长</span></td><td class="vo">"Change bag size right on the touchscreen, in English. No tools."</td><td>Size change in seconds</td></tr>
+          <tr><td class="t">20–25 s</td><td><span class="l-en">Finished packs on the outfeed, push-in on the badge</span><span class="l-zh">成品出料，镜头推向铭牌</span></td><td class="vo">"The GS-350 flow wrapper. Message us and we'll show it running live on a video call."</td><td>Message us for a live demo</td></tr>
         </tbody>
       </table>
     </div>
     <div class="who">
-      <span><b>Factory films:</b> 8 shots, 10–15 s each, phone on a tripod</span>
-      <span><b>I record:</b> opener and voiceover</span>
-      <span><b>Delivered:</b> captioned vertical and horizontal cuts</span>
+      <span><span class="l-en"><b>Factory films:</b> 8 shots, 10–15 s each, phone on a tripod</span><span class="l-zh"><b>工厂拍摄：</b>8个镜头，每个10–15秒，手机固定在三脚架上</span></span>
+      <span><span class="l-en"><b>I record:</b> opener and voiceover</span><span class="l-zh"><b>我录制：</b>英文开场和配音</span></span>
+      <span><span class="l-en"><b>Delivered:</b> captioned vertical and horizontal cuts</span><span class="l-zh"><b>交付：</b>带字幕的竖屏和横屏成片</span></span>
     </div>
   </div>
 </section>
@@ -278,59 +291,59 @@ html{scroll-behavior:smooth}
 <section id="packages">
   <div class="wrap">
     <div class="sec-head">
-      <span class="label">Packages · USD</span>
-      <h2>Start with one listing. Grow into a monthly English team.</h2>
-      <p>Every new client gets one listing rewritten free, so you can judge the work before you pay.</p>
+      <span class="label"><span class="l-en">Packages · USD</span><span class="l-zh">套餐 · 美元</span></span>
+      <h2><span class="l-en">Start with one listing. Grow into a monthly English team.</span><span class="l-zh">从一个页面开始，逐步拥有自己的英文团队。</span></h2>
+      <p><span class="l-en">Every new client gets one listing rewritten free, so you can judge the work before you pay.</span><span class="l-zh">每位新客户都可以免费改写一个产品页面，先看效果，再决定是否付费。</span></p>
     </div>
     <div class="pk">
       <div class="pkg">
-        <h3>Listing Fix Pack</h3>
-        <p class="price">$250<small>one time</small></p>
+        <h3><span class="l-en">Listing Fix Pack</span><span class="l-zh">产品页面改写包</span></h3>
+        <p class="price">$250<small><span class="l-en">one time</span><span class="l-zh">一次性</span></small></p>
         <ul>
-          <li>10 product listings rewritten: title, keywords, specs table, description, buyer FAQ</li>
-          <li>Company profile paragraph</li>
-          <li>Facts to confirm flagged, never invented</li>
+          <li><span class="l-en">10 product listings rewritten: title, keywords, specs table, description, buyer FAQ</span><span class="l-zh">改写10个产品页面：标题、关键词、参数表、产品描述、买家常见问题</span></li>
+          <li><span class="l-en">Company profile paragraph</span><span class="l-zh">一段英文公司简介</span></li>
+          <li><span class="l-en">Facts to confirm flagged, never invented</span><span class="l-zh">需要确认的数据会标注出来，绝不编造</span></li>
         </ul>
-        <p class="for">For: suppliers whose listings get views but few inquiries.</p>
+        <p class="for"><span class="l-en">For: suppliers whose listings get views but few inquiries.</span><span class="l-zh">适合：页面有浏览量、但询盘很少的供应商。</span></p>
       </div>
       <div class="pkg feature">
-        <h3>Video + Content Retainer</h3>
-        <p class="price">$700<small>/ month</small></p>
+        <h3><span class="l-en">Video + Content Retainer</span><span class="l-zh">视频 + 内容月度套餐</span></h3>
+        <p class="price">$700<small><span class="l-en">/ month</span><span class="l-zh">/ 月</span></small></p>
         <ul>
-          <li>4 short product videos with English host intro and voiceover</li>
-          <li>8 listing refreshes</li>
-          <li>8 LinkedIn posts</li>
+          <li><span class="l-en">4 short product videos with English host intro and voiceover</span><span class="l-zh">4条产品短视频，含英文主持开场和配音</span></li>
+          <li><span class="l-en">8 listing refreshes</span><span class="l-zh">8个产品页面更新</span></li>
+          <li><span class="l-en">8 LinkedIn posts</span><span class="l-zh">8篇 LinkedIn 帖子</span></li>
         </ul>
-        <p class="for">For: factories ready to show their machines running, every month.</p>
+        <p class="for"><span class="l-en">For: factories ready to show their machines running, every month.</span><span class="l-zh">适合：希望每月展示机器运行效果的工厂。</span></p>
       </div>
       <div class="pkg">
-        <h3>Export Face Retainer</h3>
-        <p class="price">$1,400<small>/ month</small></p>
+        <h3><span class="l-en">Export Face Retainer</span><span class="l-zh">出口形象月度套餐</span></h3>
+        <p class="price">$1,400<small><span class="l-en">/ month</span><span class="l-zh">/ 月</span></small></p>
         <ul>
-          <li>Everything in Video + Content</li>
-          <li>1 factory tour or explainer video</li>
-          <li>2 hosted English live streams</li>
-          <li>Website and buyer email template copy</li>
-          <li>30-minute monthly call</li>
+          <li><span class="l-en">Everything in Video + Content</span><span class="l-zh">包含视频 + 内容套餐的全部内容</span></li>
+          <li><span class="l-en">1 factory tour or explainer video</span><span class="l-zh">1条工厂参观或讲解视频</span></li>
+          <li><span class="l-en">2 hosted English live streams</span><span class="l-zh">2场英文主持直播</span></li>
+          <li><span class="l-en">Website and buyer email template copy</span><span class="l-zh">网站和买家邮件模板文案</span></li>
+          <li><span class="l-en">30-minute monthly call</span><span class="l-zh">每月30分钟通话</span></li>
         </ul>
-        <p class="for">For: exporters who want one consistent English voice for their brand.</p>
+        <p class="for"><span class="l-en">For: exporters who want one consistent English voice for their brand.</span><span class="l-zh">适合：希望品牌拥有统一英文形象的出口企业。</span></p>
       </div>
     </div>
-    <p class="addon">Single English voiceover video over your footage, with script and captions (up to 60 s): $75. Add-on: extra hosted live stream, $150 (up to 2 hours including prep).</p>
+    <p class="addon"><span class="l-en">Single English voiceover video over your footage, with script and captions (up to 60 s): $75. Add-on: extra hosted live stream, $150 (up to 2 hours including prep).</span><span class="l-zh">单条英文配音视频（使用贵公司的素材，含脚本和字幕，60秒以内）：75美元。加购：额外一场英文主持直播，150美元（含准备，最长2小时）。</span></p>
   </div>
 </section>
 
 <section id="how">
   <div class="wrap">
     <div class="sec-head">
-      <span class="label">How it works</span>
-      <h2>No travel, no film crew</h2>
+      <span class="label"><span class="l-en">How it works</span><span class="l-zh">合作流程</span></span>
+      <h2><span class="l-en">No travel, no film crew</span><span class="l-zh">不用出差，不用拍摄团队</span></h2>
     </div>
     <ol class="steps">
-      <li><h3>Free sample</h3><p>Send one listing link. Get it back rewritten within 48 hours.</p></li>
-      <li><h3>Short intake</h3><p>A form covering your machines, buyers, specs and the claims you can back up.</p></li>
-      <li><h3>You film, I write and host</h3><p>Your team films from a shot list. I write the copy and record intros and voiceover.</p></li>
-      <li><h3>Review and publish</h3><p>You approve every piece before it goes live. Monthly clients get a fixed delivery date.</p></li>
+      <li><h3><span class="l-en">Free sample</span><span class="l-zh">免费样稿</span></h3><p><span class="l-en">Send one listing link. Get it back rewritten within 48 hours.</span><span class="l-zh">发给我一个产品链接，48小时内收到改写稿。</span></p></li>
+      <li><h3><span class="l-en">Short intake</span><span class="l-zh">简短问卷</span></h3><p><span class="l-en">A form covering your machines, buyers, specs and the claims you can back up.</span><span class="l-zh">填写一份表格，介绍您的机器、买家、参数和可以证实的卖点。</span></p></li>
+      <li><h3><span class="l-en">You film, I write and host</span><span class="l-zh">您拍摄，我写稿和出镜</span></h3><p><span class="l-en">Your team films from a shot list. I write the copy and record intros and voiceover.</span><span class="l-zh">贵公司按拍摄清单拍摄，我撰写文案并录制开场和配音。</span></p></li>
+      <li><h3><span class="l-en">Review and publish</span><span class="l-zh">审核后发布</span></h3><p><span class="l-en">You approve every piece before it goes live. Monthly clients get a fixed delivery date.</span><span class="l-zh">每项内容都由您确认后再发布。月度客户有固定交付日期。</span></p></li>
     </ol>
   </div>
 </section>
@@ -338,22 +351,34 @@ html{scroll-behavior:smooth}
 <section id="contact">
   <div class="wrap contact">
     <div class="sec-head" style="margin-bottom:0">
-      <span class="label">Contact</span>
-      <h2>Send one listing link for a free rewrite</h2>
-      <p>I'm a native English speaker based in Canada, and I speak conversational Mandarin. I write marketing copy in English. I'm not a professional translator, and any Chinese-language work is checked by a fluent reviewer.</p>
+      <span class="label"><span class="l-en">Contact</span><span class="l-zh">联系方式</span></span>
+      <h2><span class="l-en">Send one listing link for a free rewrite</span><span class="l-zh">发一个产品链接，免费改写</span></h2>
+      <p><span class="l-en">I'm David Lu (鲁大伟), a Canadian-born Chinese with family roots in Liaoning. English is my first language. I write English marketing copy and videos that help Chinese factories connect with buyers overseas.</span><span class="l-zh">我叫 David Lu（鲁大伟），是在加拿大出生的华裔，老家在辽宁。英语是我的母语。我撰写英文营销文案、制作英文视频，帮助中国工厂更好地对接海外买家。</span></p>
     </div>
     <dl>
-      <div><dt>Email</dt><dd>davidd1uuu@gmail.com</dd></div>
-      <div><dt>WeChat</dt><dd>QR code on request by email</dd></div>
-      <div><dt>Hours</dt><dd>Replies within 24 h, China time</dd></div>
+      <div><dt><span class="l-en">Email</span><span class="l-zh">邮箱</span></dt><dd>davidd1uuu@gmail.com</dd></div>
+      <div><dt><span class="l-en">WeChat</span><span class="l-zh">微信</span></dt><dd><span class="l-en">QR code on request by email</span><span class="l-zh">发邮件索取二维码</span></dd></div>
+      <div><dt><span class="l-en">Hours</span><span class="l-zh">回复</span></dt><dd><span class="l-en">Replies within 24 h, China time</span><span class="l-zh">24小时内回复（北京时间）</span></dd></div>
     </dl>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap">Exporter English · English content and on-camera hosting for machinery exporters · Prices in USD</div>
+  <div class="wrap"><span class="l-en">Exporter English · English content and on-camera hosting for machinery exporters · Prices in USD</span><span class="l-zh">Exporter English · 为机械出口企业提供英文内容和出镜主持 · 价格以美元计</span></div>
 </footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){root.setAttribute('data-lang',l);root.lang=(l==='zh'?'zh-CN':'en');try{localStorage.setItem('ee-lang',l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem('ee-lang')}catch(e){}
+  var fromHash=location.hash==='#zh'?'zh':(location.hash==='#en'?'en':null);
+  var nav=(navigator.language||'').toLowerCase().indexOf('zh')===0?'zh':'en';
+  setLang(fromHash||saved||nav);
+  document.addEventListener('click',function(ev){var b=ev.target.closest('[data-set-lang]');if(!b)return;setLang(root.getAttribute('data-lang')==='zh'?'en':'zh');});
+})();
+</script>
 
 </body>
 </html>
