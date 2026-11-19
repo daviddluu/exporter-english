@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exporter English</title>
+<meta name="description" content="English listings, product videos and a native English host for Chinese food processing and packaging machine factories.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: spec-sheet page. A steel-toned band hero, then sections that read like a machine datasheet: labeled rows, before/after panels, package plates. */
+:root{
+  --bg:#f3f5f6; --surface:#ffffff; --ink:#15212b; --muted:#56646f; --line:#d5dce1;
+  --accent:#1d5fa8; --accent-ink:#ffffff; --before:#a3412b; --before-bg:#fbefec; --after:#1f7a52; --after-bg:#eaf5ef;
+  --band:#1a2833; --band-ink:#e8eef2; --band-muted:#9fb0bd;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10171d; --surface:#17212a; --ink:#e6ecf0; --muted:#9aa9b5; --line:#2a3843;
+  --accent:#6aa6ec; --accent-ink:#0b1622; --before:#f08f78; --before-bg:#2a1a17; --after:#6fd0a2; --after-bg:#13261d;
+  --band:#0b1116; --band-ink:#e6ecf0; --band-muted:#8597a5; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10171d; --surface:#17212a; --ink:#e6ecf0; --muted:#9aa9b5; --line:#2a3843;
+  --accent:#6aa6ec; --accent-ink:#0b1622; --before:#f08f78; --before-bg:#2a1a17; --after:#6fd0a2; --after-bg:#13261d;
+  --band:#0b1116; --band-ink:#e6ecf0; --band-muted:#8597a5; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.12;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:750;font-stretch:88%}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.label{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* Header + hero band */
+.band{background:var(--band);color:var(--band-ink)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-stretch:110%;letter-spacing:.01em;font-size:1.05rem}
+.nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav a{color:var(--band-muted);text-decoration:none;font-size:.92rem}
+.nav a:hover{color:var(--band-ink)}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;padding-block:56px 64px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,5.4vw,3.9rem);font-weight:800;font-stretch:82%;letter-spacing:-.01em}
+.hero p.lead{margin-top:18px;font-size:1.12rem;color:var(--band-muted);max-width:52ch}
+.cta{display:inline-block;margin-top:28px;background:var(--accent);color:var(--accent-ink);font-weight:600;padding:13px 22px;border-radius:4px;text-decoration:none}
+.plate{border:1px solid #3a4b58;border-radius:6px;padding:20px 22px;font-family:var(--mono);font-size:.86rem;background:rgba(255,255,255,.03)}
+.plate .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed #3a4b58}
+.plate .row:last-child{border-bottom:0}
+.plate .k{color:var(--band-muted)}
+.plate .v{text-align:right}
+
+section{padding-block:72px}
+section + section{border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:10px;margin-bottom:36px;max-width:68ch}
+.sec-head p{color:var(--muted)}
+
+/* Samples */
+.sample{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.sample + .sample{margin-top:28px}
+.sample-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:18px 22px;border-bottom:1px solid var(--line)}
+.sample-top .meta{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.ba{display:grid;grid-template-columns:1fr 1fr}
+.ba > div{padding:20px 22px;min-width:0;display:grid;gap:14px;align-content:start}
+.ba .before{background:var(--before-bg)}
+.ba .after{background:var(--after-bg)}
+.tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.before .tag{color:var(--before)}
+.after .tag{color:var(--after)}
+.ttl{font-family:var(--display);font-weight:650;font-size:1.02rem;line-height:1.35}
+.before .ttl,.before .q{color:var(--ink);opacity:.85}
+.q{font-size:.93rem}
+.fixes{padding:18px 22px;border-top:1px solid var(--line);display:grid;gap:8px}
+.fixes ul{margin:0;padding-left:1.1em;display:grid;gap:6px;font-size:.94rem}
+.fixes li::marker{color:var(--accent)}
+mark{background:none;color:var(--before);font-weight:600;text-decoration:underline wavy;text-underline-offset:3px}
+
+/* Video storyboard */
+.board{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.93rem}
+th,td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.t{font-family:var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--accent)}
+td.vo{font-style:italic}
+.who{display:flex;gap:24px;flex-wrap:wrap;margin-top:22px;font-size:.93rem;color:var(--muted)}
+.who b{color:var(--ink);font-weight:600}
+
+/* Packages */
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.pkg{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.pkg.feature{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.price{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:2.3rem;line-height:1}
+.price small{font-family:var(--body);font-size:.95rem;font-weight:500;color:var(--muted);margin-left:4px}
+.pkg ul{margin:0;padding-left:1.1em;display:grid;gap:7px;font-size:.94rem}
+.pkg .for{font-size:.9rem;color:var(--muted);margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.addon{margin-top:20px;font-size:.94rem;color:var(--muted)}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s;list-style:none;margin:0;padding:0}
+.steps li{counter-increment:s;display:grid;gap:8px;align-content:start}
+.steps li::before{content:"Step " counter(s);font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.steps p{font-size:.94rem;color:var(--muted)}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.contact dl{margin:0;display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.contact dl div{display:flex;justify-content:space-between;gap:16px;padding:14px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.contact dl div:last-child{border-bottom:0}
+.contact dt{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.contact dd{margin:0;font-weight:500;user-select:all}
+footer{padding-block:28px;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .hero,.contact{grid-template-columns:1fr;gap:32px}
+  .pk{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .ba{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  section{padding-block:52px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+
+<div class="band">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <span class="brand">EXPORTER ENGLISH</span>
+      <ul>
+        <li><a href="#samples">Samples</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <div>
+        <h1>English that sells your machines to Western buyers.</h1>
+        <p class="lead">Listings, product videos and a native English host for Chinese food processing and packaging machine factories. You film the machine. I make it read and sound like it was made for the buyer.</p>
+        <a class="cta" href="#contact">Get a free listing rewrite</a>
+      </div>
+      <div class="plate" aria-label="Service summary">
+        <div class="row"><span class="k">Specialty</span><span class="v">Food processing &amp; packaging machinery</span></div>
+        <div class="row"><span class="k">Platforms</span><span class="v">Alibaba · Made-in-China · Global Sources</span></div>
+        <div class="row"><span class="k">Language</span><span class="v">Native Canadian English</span></div>
+        <div class="row"><span class="k">On camera</span><span class="v">Product videos · factory tours · live streams</span></div>
+        <div class="row"><span class="k">Billing</span><span class="v">USD · Wise or PayPal</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+<section id="samples">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Listing rewrites</span>
+      <h2>Three real listings, before and after</h2>
+      <p>Each "before" is copied from a live Made-in-China.com listing. Supplier names are withheld. Facts the original didn't give are left for the factory to confirm, never invented.</p>
+    </div>
+
+    <article class="sample">
+      <div class="sample-top"><h3>Pillow packing machine (flow wrapper)</h3><span class="meta">Packaging · Liaoning · US$9k–25k</span></div>
+      <div class="ba">
+        <div class="before">
+          <span class="tag">Before</span>
+          <p class="ttl">Biscuits / Cakes / Medicine / Daily Necessities / Industrial Parts / Cartons / Chocolate / Bread / <mark>Noddle</mark> Pillow Packing Machine</p>
+          <p class="q">"This machine is used for packing the product that are not suitable the brush to feed, like chocolate, waffle, puffing, nougat etc."</p>
+        </div>
+        <div class="after">
+          <span class="tag">After</span>
+          <p class="ttl">Horizontal Flow Wrapper GS-350 | Servo Pillow Pack Machine for Chocolate, Wafers &amp; Snack Bars | 40–220 Packs/Min</p>
+          <p class="q">Wrap chocolate, wafers, nougat and snack bars at up to 220 packs per minute. The GS-350 is a servo-driven flow wrapper for products that can't go through a brush feeder, and it links straight to your line.</p>
+        </div>
+      </div>
+      <div class="fixes">
+        <span class="label">What changed</span>
+        <ul>
+          <li>The title had nine unrelated products. Now it leads with the terms buyers search ("flow wrapper"), plus the model number and speed.</li>
+          <li>The listing gave two different speeds (60–220 and 40–220). That's flagged for the factory to confirm.</li>
+          <li>Features rewritten as buyer gains: no empty bags, size changes on the touchscreen, no stops for film changes.</li>
+          <li>Added a buyer FAQ that answers product size, film types and line connection before anyone has to message.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="sample">
+      <div class="sample-top"><h3>Industrial meat and vegetable dicer</h3><span class="meta">Food processing · Shandong · US$3k–5k</span></div>
+      <div class="ba">
+        <div class="before">
+          <span class="tag">Before</span>
+          <p class="ttl">Vegetable Frozen Industrial Automatic Pork Meat Cube Cutting Chopping Processing Dicer Machine</p>
+          <p class="q">"…we focus on the R&amp;D, design, production and sales of <mark>enema production lines</mark>, vacuum packaging machines…"</p>
+        </div>
+        <div class="after">
+          <span class="tag">After</span>
+          <p class="ttl">QDJ-350 Industrial Meat Dicer | Cubes Fresh &amp; Frozen Meat, Vegetables and Fruit | SUS304, Hydraulic or CNC</p>
+          <p class="q">"…we've shipped sausage production lines, dicers, tumblers, vegetable washers and fryers to buyers in North America, Southeast Asia and the Middle East."</p>
+        </div>
+      </div>
+      <div class="fixes">
+        <span class="label">What changed</span>
+        <ul>
+          <li>"Enema" was a literal translation of 灌肠 (sausage stuffing). To a Western buyer it means a medical device, so it's now "sausage production lines".</li>
+          <li>The page named two different companies. Now it uses one name throughout.</li>
+          <li>Fixed a spec typo (a 190 mm machine length that should be 1940 mm) plus "Forover" and "Datails".</li>
+          <li>Flagged the facts buyers need that were missing: output in kg/h, cube size range, and Hydraulic vs CNC.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="sample">
+      <div class="sample-top"><h3>Multihead weigher vertical packing machine</h3><span class="meta">Packaging · Jiangxi · US$10k–15k</span></div>
+      <div class="ba">
+        <div class="before">
+          <span class="tag">Before</span>
+          <p class="ttl">Banana Chips/ Shrimpchips/Nut Automatic Solid Snack Vertical Packing Machine</p>
+          <p class="q">"It can automatically complete bag making, measuring, <mark>blanking</mark>, sealing… and can be equipped with <mark>cursor</mark>, coding, inflation…"</p>
+        </div>
+        <div class="after">
+          <span class="tag">After</span>
+          <p class="ttl">Multihead Weigher VFFS Packing Machine SD-S420 | Snack, Chips &amp; Nut Bagging | 0.5–1 kg Bags, Mitsubishi PLC</p>
+          <p class="q">Forms the bag, weighs, fills, seals, cuts and counts in one cycle. Options include date coding, nitrogen flushing and a registration-mark photo-eye for printed film.</p>
+        </div>
+      </div>
+      <div class="fixes">
+        <span class="label">What changed</span>
+        <ul>
+          <li>Translated the machine-manual terms into what buyers say: "combination scale" became multihead weigher, "cursor" became registration mark, "blanking" became product discharge.</li>
+          <li>Added "multihead weigher" and "VFFS" to the title. Those are the two phrases buyers type into search.</li>
+          <li>Kept the strongest part, the name-brand parts list and priced spares, and moved it up where buyers will see it.</li>
+          <li>Flagged a founding date that conflicted (2012 vs 2017) before a buyer notices it.</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Sample product video · 25 seconds · 9:16 and 16:9</span>
+      <h2>Flow wrapper video script</h2>
+      <p>Your team films the machine from a simple shot list. I record the opener and voiceover, then edit with captions for Alibaba, TikTok, YouTube Shorts and LinkedIn.</p>
+    </div>
+    <div class="board">
+      <table>
+        <thead><tr><th>Time</th><th>Picture</th><th>Voice</th><th>On-screen text</th></tr></thead>
+        <tbody>
+          <tr><td class="t">0–4 s</td><td>Host on camera, chest-up</td><td class="vo">"This machine wraps up to 220 chocolate bars a minute. Watch."</td><td>220 packs / min</td></tr>
+          <tr><td class="t">4–9 s</td><td>Factory: wide shot, bars on the infeed conveyor</td><td class="vo">"Bars come straight off your line onto a custom infeed, with no hand feeding."</td><td>Links to your line</td></tr>
+          <tr><td class="t">9–15 s</td><td>Close-up: film forming, seal jaw closing</td><td class="vo">"Nine servo motors keep every wrap tight and centered, and multi-zone heat gives a clean, strong seal."</td><td>9 servo motors</td></tr>
+          <tr><td class="t">15–20 s</td><td>Close-up: hand changes bag length on the touchscreen</td><td class="vo">"Change bag size right on the touchscreen, in English. No tools."</td><td>Size change in seconds</td></tr>
+          <tr><td class="t">20–25 s</td><td>Finished packs on the outfeed, push-in on the badge</td><td class="vo">"The GS-350 flow wrapper. Message us and we'll show it running live on a video call."</td><td>Message us for a live demo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="who">
+      <span><b>Factory films:</b> 8 shots, 10–15 s each, phone on a tripod</span>
+      <span><b>I record:</b> opener and voiceover</span>
+      <span><b>Delivered:</b> captioned vertical and horizontal cuts</span>
+    </div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">Packages · USD</span>
+      <h2>Start with one listing. Grow into a monthly English team.</h2>
+      <p>Every new client gets one listing rewritten free, so you can judge the work before you pay.</p>
+    </div>
+    <div class="pk">
+      <div class="pkg">
+        <h3>Listing Fix Pack</h3>
+        <p class="price">$250<small>one time</small></p>
+        <ul>
+          <li>10 product listings rewritten: title, keywords, specs table, description, buyer FAQ</li>
+          <li>Company profile paragraph</li>
+          <li>Facts to confirm flagged, never invented</li>
+        </ul>
+        <p class="for">For: suppliers whose listings get views but few inquiries.</p>
+      </div>
+      <div class="pkg feature">
+        <h3>Video + Content Retainer</h3>
+        <p class="price">$700<small>/ month</small></p>
+        <ul>
+          <li>4 short product videos with English host intro and voiceover</li>
+          <li>8 listing refreshes</li>
+          <li>8 LinkedIn posts</li>
+        </ul>
+        <p class="for">For: factories ready to show their machines running, every month.</p>
+      </div>
+      <div class="pkg">
+        <h3>Export Face Retainer</h3>
+        <p class="price">$1,400<small>/ month</small></p>
+        <ul>
+          <li>Everything in Video + Content</li>
+          <li>1 factory tour or explainer video</li>
+          <li>2 hosted English live streams</li>
+          <li>Website and buyer email template copy</li>
+          <li>30-minute monthly call</li>
+        </ul>
+        <p class="for">For: exporters who want one consistent English voice for their brand.</p>
+      </div>
+    </div>
+    <p class="addon">Add-on: extra hosted live stream, $150 (up to 2 hours including prep).</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="label">How it works</span>
+      <h2>No travel, no film crew</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Free sample</h3><p>Send one listing link. Get it back rewritten within 48 hours.</p></li>
+      <li><h3>Short intake</h3><p>A form covering your machines, buyers, specs and the claims you can back up.</p></li>
+      <li><h3>You film, I write and host</h3><p>Your team films from a shot list. I write the copy and record intros and voiceover.</p></li>
+      <li><h3>Review and publish</h3><p>You approve every piece before it goes live. Monthly clients get a fixed delivery date.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="label">Contact</span>
+      <h2>Send one listing link for a free rewrite</h2>
+      <p>I'm a native English speaker based in Canada, and I speak conversational Mandarin. I write marketing copy in English. I'm not a professional translator, and any Chinese-language work is checked by a fluent reviewer.</p>
+    </div>
+    <dl>
+      <div><dt>Email</dt><dd>davidd1uuu@gmail.com</dd></div>
+      <div><dt>WeChat</dt><dd>QR code on request by email</dd></div>
+      <div><dt>Hours</dt><dd>Replies within 24 h, China time</dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Exporter English · English content and on-camera hosting for machinery exporters · Prices in USD</div>
+</footer>
+
+</body>
+</html>
